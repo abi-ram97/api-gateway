@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: api-gateway
+  devtools:
+    add-properties: false
+server:
+  port: 8090
+zuul:
+  routes:
+    credit-card-service:
+      path: /credit-cards/**
+      service-id: credit-card-service
+      strip-prefix: true
+    approval-service:
+      path: /approvals/**
+      service-id: approval-service
+      strip-prefix: true
+#ribbon:
+#   eureka:
+#      enabled: false
+# 
+#credit-card-service:
+#   ribbon:
+#     listOfServers: localhost:8081
+#approval-service:
+#  ribbon:
+#     listOfServers: localhost:8082
